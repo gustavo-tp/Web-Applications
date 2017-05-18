@@ -1,0 +1,156 @@
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content:"IE=edge" />
+	<meta name:"viewport" content:"width=device-width, initial-scale=1" />
+	<title>Tarefas</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div class="container">
+		<div class="form">
+			<div id="painel" class="panel panel-info">
+				<div class="panel-heading">
+					<h4>Lista de tarefas</h4>
+				</div>
+				<div class="row">
+					<div class="panel-body">
+						<div class="form-group col-md-10">
+							<input id="input-tarefa" type="text" class="form-control" placeholder="Digite sua tarefa aqui" />
+						</div>
+						<div id="tarefa-bt">
+							<button id="include" type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Incluir</button>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="panel-body">
+					<a href="#input-tarefa" class="btn btn-defalt remove">Crie sua primeira tarefa!</a>
+					<button id="select_all" type="button" class="btn btn-defalt hide">Selecionar todos</button>
+					<div id="tarefas"></div>
+				</div>
+				<hr>
+				<div class="panel-body">
+					<button id="concluido" type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Tornar concluída</button>
+					<button id="restaurar" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>&nbsp;Tornar não concluída</button>
+					<button id="delete" type="button" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Excluir</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		var tarefas = [];
+		var it = 0;
+		$(document).ready(function () {
+			$("#include").click(function() {
+				incluir_tarefa();
+			});
+
+			function incluir_tarefa() {
+				if ($("#input-tarefa").val() == '') {
+					alert("Escreva alguma coisa!");
+					return;
+				};
+				tarefas[it] = $("#input-tarefa").val();
+
+				var checkbox = '<div class="checkbox">' +
+				'<div class="aleatorio">' +
+				'<label><input type="checkbox" value="' + tarefas[it] + '" /><span>' + tarefas[it] + '</span></label>' +
+				'</div>' +
+				'<input class="hide" type="text" />' +
+				'</div>';
+
+				$("#tarefas").append(checkbox);
+				it += 1;
+				$("#input-tarefa").val("");
+				$(".remove").remove();
+				$("#select_all").removeClass("hide");
+				console.log(it);
+			}
+
+			$(document).on('dblclick', 'div.checkbox', function () {
+				$(this).find("input[type=text]").removeClass('hide');
+				$(this).children('.aleatorio').addClass('hide');
+			});
+
+			$(document).on('keypress', '#tarefas input[type=text]', function (e) {
+				if (e.which == 13) {
+					var nome_novo = $(this).val();
+					console.log(nome_novo);
+					$(this).parent().find("input[type=checkbox]").val(nome_novo);
+					$(this).parent().find("span").html(nome_novo);
+					$(this).addClass("hide");
+					$(this).parent().children('.aleatorio').removeClass('hide');
+				}
+			});    
+
+			$("#select_all").click(function () {
+				if (!$('input[type="checkbox"]:checked').is(":empty")) {
+					$('input[type="checkbox"]').prop("checked", true);
+					$("#select_all").html("Selecionar nenhum");
+				}
+				else {
+					$('input[type="checkbox"]').prop("checked", false);
+					$("#select_all").html("Selecionar todos");
+				}
+			})
+
+			$("#concluido").click(function () {
+				var arr_checked = $('input[type="checkbox"]:checked');
+		        //console.log(arr_checkd)
+		        $(arr_checked).each(function () {
+		        	$(this).parent().addClass("tarefa_concluida");
+		        	$(this).prop("checked", false);
+		        });
+		    });
+
+			$("#input-tarefa").keypress(function (e) {
+				if (e.which == 13) {
+					incluir_tarefa();
+				}
+			});
+
+			$("#restaurar").click(function () {
+				var arr_checked = $('input[type="checkbox"]:checked');
+				$(arr_checked).each(function () {
+					$(this).parent().removeClass("tarefa_concluida");
+				});
+			});
+
+			$("#rename").click(function () {
+				var arr_checked = $('input[type="checkbox"]:checked');
+				$(arr_checked).each(function () {
+					var valorDoCheckbox = $(this).prop('value')
+					$("#input-tarefa").val(valorDoCheckbox);
+					$("#rename").hide();
+					$("#replace").show();
+				});
+			});
+
+			$("#replace").click(function () {
+				var arr_checked = $('input[type="checkbox"]:checked');
+				$(arr_checked).each(function () {
+					var nome_novo = $(".checkbox").children("span").html();
+					$(arr_checked).val(nome_novo);
+					$("#rename").show();
+					$("#replace").hide();
+				})
+			})
+
+			$("#delete").click(function () {
+				var y = confirm("Você realmente deseja excluir essa tarefa?")
+				if (y == true) {
+					var arr_checkd = $('input[type="checkbox"]:checked');
+					$(arr_checkd).each(function () {
+						$(this).parent().remove();
+					})
+				};
+			})
+
+		});
+	</script>
+</body>
+</html>

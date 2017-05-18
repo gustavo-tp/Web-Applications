@@ -1,0 +1,41 @@
+#alerta {
+	display: none;
+}
+@media screen and (min-width: 400px) {
+	#check {
+		padding-top: 30px;
+	}
+}
+.negrito {
+	font-weight: bold !important;
+}
+body {
+	background: #F0F8FF;
+}
+.carousel-inner, .btn-defalt {
+	background: #A9A9A9	;
+}
+.btn-defalt {
+	color: white;
+}
+#painelF {
+	width: 600px;
+	margin: 0 auto;
+}
+#carousel-example-generic, #dropdown, #dropdown2, #tab, #popover {
+	padding-top: 30px;
+}
+.container {
+	padding-top: 25px;
+}
+.imagem {
+	height: 250px !important;
+}
+.avaliacao {
+	display: block;
+}
+.tarefa_concluida {
+	text-decoration: line-through;
+	font-style: italic;
+	color: #696969;
+}

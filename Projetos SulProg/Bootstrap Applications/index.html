@@ -1,0 +1,227 @@
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<!-- Esta tag força o Internet Explorer a usar o estilo do css do bootstrap -->
+	<meta http-equiv="X-UA-Compatible" content:"IE=edge" />
+	<!-- Esta tag faz com que o site possa ser visualizados em todos os tamanhos de janelas inclusive em smartphones -->
+	<meta name:"viewport" content:"width=device-width, initial-scale=1" />	
+	<title>Formulário</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div id="dropdown" class="container">
+		<a class="btn btn-info" href="dropdown.html" target="_blank">Dropdown</a>
+		<a class="btn btn-info" href="tarefas.html" target="_blank">Tarefas</a>
+	</div>
+	<div id="carousel-example-generic" class="carousel slide container" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img class="imagem" src="imagens/Apps-HTML-5-Metro-icon.png" alt="...">
+				<div class="carousel-caption">
+					Aprenda HTML fácil
+				</div>
+			</div>
+			<div class="item">
+				<img class="imagem" src="imagens/javascript_logo.png" alt="...">
+				<div class="carousel-caption">
+					Aprenda JavaScript em cinco minutos
+				</div>
+			</div>
+
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<div class="container-fluid">		
+		<div class="col-md-12">
+			<h2>Formulário de cadastro</h2>
+			<p>Preencha os campos abaixo com seus dados</p>		
+			<div id="alerta" class="alert alert-success">
+				<strong id="texto">Sucesso!</strong>
+			</div>
+			<form class="form">				
+				<div id="painel" class="panel panel-info">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-menu-down pull-right" data-toggle="collapse" data-parent="#painel" href="#painel_body"></span>
+						<h4>Dados gerais</h4>
+					</div>
+					<div id="painel_body" class="collapse">
+						<div class="row">
+							<div class="panel-body">
+								<div class="form-group col-md-7 col-sm-5">
+									<label for"nome">Nome completo:</label>
+									<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo aqui" />
+								</div>
+								<div class="form-group col-md-1 col-sm-1">
+									<label for"idade">Idade:</label>
+									<input type"text" class="form-control" id="idade" placeholder="Digite sua idade aqui" />
+								</div>
+								<div  class="form-group col-md-2 col-sm-2">
+									<label for"RG">RG:</label>		
+									<input type"text" class="form-control" id="rg" placeholder="Digite seu RG aqui" />
+								</div>
+								<div class="form-group col-md-2 col-sm-2">
+									<label for"CPF">CPF:</label>
+									<input type"text" class="form-control" id="cpf" placeholder="Digite seu CPF aqui" />
+								</div>
+								<div class="form-group col-md-6 col-sm-4">
+									<label for="email">Email:</label>
+									<input type="text" class="form-control" id="email" placeholder="Digite seu email aqui" />
+								</div>
+								<div class="col-md-6">
+									<label id="check">
+										<input type="checkbox" value="">
+										Usuáro ativo
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="painel2" class="panel panel-info">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-menu-down pull-right" data-toggle="collapse" data-parent="#paine2" href="#painel_body2"></span>
+						<h4>Dados de endereço</h4>
+					</div>
+					<div class="collapse" id="painel_body2">
+						<div class="row">
+							<div class="panel-body">
+								<div class="panel-heading">
+									<div class="form-group col-md-10">
+										<label for="logradouro">Logradouro:</label>
+										<input type"text" class="form-control" id="logradouro" placeholder="Digite seu logradouro aqui" />
+									</div>
+									<div class="form-group col-md-2">
+										<label for="numero">Número:</label>
+										<input type="text" class="form-control" id="numero" placeholder="Digite seu número aqui" />
+									</div>
+									<div class="form-group col-md-3">
+										<label for="cep">CEP:</label>
+										<input type="text" class="form-control" id="cep" placeholder="Digite seu cep aqui" />
+									</div>
+									<div class="form-group col-md-9">
+										<label for="rua">Rua:</label>
+										<input type="text" class="form-control" id="rua" placeholder="Digite sua rua aqui" />
+									</div>
+									<div class="form-group col-md-6">
+										<label for="cidade">Cidade:</label>
+										<input type="text" class="form-control" id="rua" placeholder="Digite sua cidade aqui" />
+									</div>
+									<div class="form-group col-md-1">
+										<label for="Estado">Estado</label>
+										<input type="text" class="form-control" id="estado" placeholder="Digite seu estado aqui" />
+									</div>
+									<div class="form-group col-md-5">
+										<label for="pais">País</label>
+										<input type="text" class="form-control" id="pais" placeholder="Digite seu país aqui" />
+									</div>
+								</div>							
+							</div>			
+						</div>
+					</div>
+				</div>
+				<button id="cadastrar" type="button" class="btn btn-info pull-right"><span class="glyphicon glyphicon-copy" aria-hidden="true"></span>&nbsp;Cadastrar</button>
+				<button id="modal" type="button" class="btn btn-info" data-toggle="modal" data-target="#meu_modal"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Abrir Modal</button>
+				<button id="cor" type="button" class="btn btn-info"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Mudar para verde</button>
+				<button id="deixar_negrito" type="button" class="btn btn-info"><span class="glyphicon glyphicon-bold" aria-hidden="true"></span>&nbsp;Deixar em negrito</button>
+				<div id="meu_modal" class="modal fade" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">Título do meu Modal</h4>
+							</div>
+							<div class="modal-body">
+								<p>Corpo do meu Modal&nbsp;&hellip;</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+								<button type="button" class="btn btn-primary">Salvar alterações</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<button id="modal2" type="button" class="btn btn-info" data-toggle="modal" data-target="#meu_modal2"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Feedback</button>
+				<div id="meu_modal2" class="modal fade" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">Avaliação do nosso serviço</h4>
+							</div>
+							<div class="modal-body">
+								<p>Preencha os dados com seu e-mail e sua avaliação.</p>
+								<form class="form" action="" method="get">
+									<div id="painel" class="panel panel-defalt">
+										<div class="panel-heading">
+											<label for="nome2">Nome:</label>
+											<input type="text" class="form-control" id="nome2" placeholder="Digite seu nome aqui">
+											<label for="emil2">Email:</label>
+											<input type="text" class="form-control" id="email2" placeholder="Digite seu email aqui">
+											<label class="avaliacao" for="opcao">Você gostou do serviço?</label>
+											<input type="radio" name="opcao" value="sim" checked="checked">Sim
+											<input type="radio" name="opcao" value="não">Não
+											<label class="avaliacao" for="feedback">Escreva sua avaliação:</label>
+											<textarea name="feedback" rows="10" cols="85"></textarea>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-defalt" data-dismiss="modal">Fechar</button>
+								<button type="button" class="btn btn-primary">Enviar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function() {					
+		$("#cadastrar").click(function() {
+			$("#alerta").show();						
+			$("#texto").html("Formulario enviado com sucesso!");	
+		});
+		$("#cor").click(function() {
+			var cor_alerta = $("#alerta").hasClass("alert-success")
+			var possui_classe = $("#painel, #painel2").hasClass("panel-info")
+			var cor_botao = $("#cadastrar, #modal, #cor, #deixar_negrito, #modal2").hasClass("btn-info")
+			if (possui_classe & cor_botao & cor_alerta) {
+				$("#alerta").removeClass("alert-success").addClass("alert-info")
+				$("#painel, #painel2").removeClass("panel-info").addClass("panel-success")
+				$("#cadastrar, #modal, #cor, #deixar_negrito, #modal2").removeClass("btn-info").addClass("btn-success")
+				$("#cor").html("Mudar para azul")	
+			}
+			else{
+				$("#alerta").removeClass("alert-info").addClass("alert-success")
+				$('#painel, #painel2').removeClass("panel-success").addClass("panel-info")
+				$("#cadastrar, #modal, #cor, #deixar_negrito, #modal2").removeClass("btn-success").addClass("btn-info")
+				$("#cor").html("Mudar para verde")
+			}
+		})
+		$("#deixar_negrito").click(function() {
+			$("*").toggleClass("negrito")
+		})
+	})
+</script>
+</body>
+</html>
